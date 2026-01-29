@@ -1,0 +1,59 @@
+@import "tailwindcss";
+
+/* KaTeX styles */
+@import "katex/dist/katex.min.css";
+
+/* Custom styles */
+body {
+  @apply bg-gray-50 text-gray-900 m-0;
+  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
+}
+
+.math-step {
+  @apply bg-white rounded-lg shadow-sm border border-gray-200 p-6 mb-4;
+}
+
+.math-step-header {
+  @apply flex items-center gap-3 mb-4;
+}
+
+.math-step-number {
+  @apply w-8 h-8 rounded-full bg-blue-600 text-white flex items-center justify-center font-bold text-sm;
+}
+
+.math-step-title {
+  @apply text-lg font-semibold text-gray-800;
+}
+
+.math-content {
+  @apply my-4 p-4 bg-gray-50 rounded-lg overflow-x-auto;
+}
+
+.sub-step {
+  @apply ml-6 mt-3 p-3 border-l-2 border-blue-200;
+}
+
+.stat-card {
+  @apply bg-white rounded-lg p-4 shadow-sm border border-gray-200;
+}
+
+.stat-label {
+  @apply text-sm text-gray-500 uppercase tracking-wide;
+}
+
+.stat-value {
+  @apply text-2xl font-bold text-gray-800;
+}
+
+/* File upload dropzone */
+.dropzone {
+  @apply border-2 border-dashed border-gray-300 rounded-lg p-8 text-center cursor-pointer transition-colors;
+}
+
+.dropzone:hover {
+  @apply border-blue-400 bg-blue-50;
+}
+
+.dropzone.active {
+  @apply border-blue-500 bg-blue-100;
+}
