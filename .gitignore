@@ -1,7 +1,7 @@
 # =====================
 # Sample Data
 
-sample_data.csv
+*.csv
 
 # Python
 # =====================
