@@ -122,6 +122,26 @@ export default function FileUpload({ onUploadSuccess }) {
           {error}
         </div>
       )}
+
+      {/* Data Quality Disclaimer */}
+      <div className="mt-6 p-4 bg-amber-50 border border-amber-200 rounded-lg">
+        <div className="flex items-start">
+          <svg className="w-5 h-5 text-amber-600 mt-0.5 mr-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
+          </svg>
+          <div>
+            <h4 className="text-sm font-medium text-amber-800">Data Quality Notice</h4>
+            <p className="text-sm text-amber-700 mt-1">
+              For accurate results, please ensure your data is clean before uploading. This includes:
+            </p>
+            <ul className="text-sm text-amber-700 mt-2 list-disc list-inside space-y-1">
+              <li>Numeric columns should contain only numbers (no text, symbols, or formatting)</li>
+              <li>Missing values should be handled appropriately</li>
+              <li>Remove or fix any outliers or erroneous data points</li>
+            </ul>
+          </div>
+        </div>
+      </div>
     </div>
   );
 }

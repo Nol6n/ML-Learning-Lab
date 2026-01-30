@@ -120,32 +120,50 @@ function App() {
             {/* Summary Banner */}
             <div className="bg-gradient-to-r from-blue-600 to-blue-700 rounded-lg p-6 text-white">
               <h2 className="text-xl font-bold mb-2">
-                Linear Regression Complete
+                Linear Regression Complete!
               </h2>
               <p className="text-blue-100">
                 Predicting <strong>{targetColumn}</strong> using{' '}
                 <strong>{featureColumns.join(', ')}</strong>
               </p>
               <p className="text-blue-200 text-sm mt-1">
-                Data split: {trainingResult.split_info.train_size} train / {trainingResult.split_info.val_size} validation / {trainingResult.split_info.test_size} test
+                {trainingResult.sample_size} observations, {trainingResult.num_predictors} predictor(s)
               </p>
-              <div className="mt-4 grid grid-cols-3 gap-4">
+              <div className="mt-4 grid grid-cols-2 md:grid-cols-4 gap-4">
                 <div className="bg-white/10 rounded-lg p-3">
-                  <div className="text-blue-200 text-xs uppercase">Train R²</div>
+                  <div className="text-blue-200 text-xs uppercase">R²</div>
                   <div className="text-xl font-bold">
-                    {trainingResult.metrics.train.r2}
+                    {trainingResult.metrics.r2}
+                  </div>
+                  <div className="text-blue-200 text-xs">
+                    {(trainingResult.metrics.r2 * 100).toFixed(1)}% variance explained
                   </div>
                 </div>
                 <div className="bg-white/10 rounded-lg p-3">
-                  <div className="text-blue-200 text-xs uppercase">Validation R²</div>
+                  <div className="text-blue-200 text-xs uppercase">RSE</div>
                   <div className="text-xl font-bold">
-                    {trainingResult.metrics.validation.r2}
+                    {trainingResult.metrics.rse}
+                  </div>
+                  <div className="text-blue-200 text-xs">
+                    avg prediction error
                   </div>
                 </div>
                 <div className="bg-white/10 rounded-lg p-3">
-                  <div className="text-blue-200 text-xs uppercase">Test R²</div>
+                  <div className="text-blue-200 text-xs uppercase">F-statistic</div>
                   <div className="text-xl font-bold">
-                    {trainingResult.metrics.test.r2}
+                    {trainingResult.metrics.f_statistic}
+                  </div>
+                  <div className="text-blue-200 text-xs">
+                    overall significance
+                  </div>
+                </div>
+                <div className="bg-white/10 rounded-lg p-3">
+                  <div className="text-blue-200 text-xs uppercase">sklearn Check</div>
+                  <div className="text-xl font-bold">
+                    {trainingResult.sklearn_verification?.all_match ? '✓' : '✗'}
+                  </div>
+                  <div className="text-blue-200 text-xs">
+                    {trainingResult.sklearn_verification?.all_match ? 'verified!' : 'mismatch'}
                   </div>
                 </div>
               </div>
